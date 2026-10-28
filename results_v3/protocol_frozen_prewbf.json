@@ -1,0 +1,37 @@
+{
+ "time": "2026-10-27 19:49:43",
+ "light": "yolov8n",
+ "heavy": "rtdetr_l",
+ "meta": "LR",
+ "policy": "band<0.7",
+ "fallback": false,
+ "cv_meta_map50": {
+  "meta_LR": 0.9063972115516663,
+  "meta_HGB": 0.893319571018219,
+  "meta_RF": 0.9001554131507874,
+  "meta_SVM": 0.8783689737319946,
+  "meta_MLP": 0.9028789162635803,
+  "meta_KNN": 0.8900161743164062
+ },
+ "cv_heavy_only": 0.90781329870224,
+ "cv_policy_map50": 0.8980783581733703,
+ "cv_policy_esc": 0.24710437857721165,
+ "rules": [
+  "meta = highest CV mean mAP50 among all meta-learners run in CV",
+  "heavy = higher CV mean single mAP50 of {rtdetr_l,fasterrcnn}",
+  "policy = band<x with lowest mean esc_rate whose CV mAP50 >= heavy_only - 0.01; else fallback band<0.9",
+  "holdout evaluated once; image-level escalation to full-image heavy model"
+ ],
+ "sha256": {
+  "stackcore.py": "6b0d6047d3a13f2463ea5fdad9ba9d97fcf4dadfce4793414530bae964d68469",
+  "stack_eval.py": "3449d5c74d37975498a47887a6913324940b4c2a85954035fd2ee7b9523fdc84",
+  "cascade_cv.py": "426933e7df5b76971e3eba417267f1b6150d958fe23e19ce4caaf5a429c33327",
+  "dump_dets.py": "24a6c704c56059c300bfcdb41a81897d4986307cdf2f6aedd9024a28ddd01fec",
+  "holdout_final.py": "61f1322b34596a36428ccd0dabfc3c7fb2ea14377c40d81fdf28f0a55e7bb759",
+  "folds_v3_manifest.csv": "5c7934afc41876218a5a6a873199424bef40d1fa1300e5fb5fac00745413e4a2"
+ },
+ "versions": {
+  "torch": "2.11.0+cu128",
+  "ultralytics": "8.4.150"
+ }
+}

@@ -1,0 +1,6 @@
+__pycache__/
+*.pt
+*.pkl
+*.bak*
+*.mp4
+*.gif

@@ -1,0 +1,27 @@
+{
+ "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+ "n_images": 100,
+ "fold": 0,
+ "note": "end-to-end per image, batch 1, includes preprocessing/NMS, excludes disk read; FLOPs by torch FlopCounterMode (1 MAC = 2 FLOPs)",
+ "yolov8n": {
+  "params_M": 3.011628,
+  "flops_G": 8.0859648,
+  "ms_median": 5.247590015642345,
+  "ms_mean": 5.39070762693882,
+  "fps_median": 190.5636677063447
+ },
+ "rtdetr_l": {
+  "params_M": 32.814296,
+  "flops_G": 109.1976192,
+  "ms_median": 26.736270578112453,
+  "ms_mean": 26.8562069197651,
+  "fps_median": 37.40237431688196
+ },
+ "fasterrcnn": {
+  "params_M": 43.271528,
+  "flops_G": 559.860818944,
+  "ms_median": 66.63412397028878,
+  "ms_mean": 66.75328564830124,
+  "fps_median": 15.007325682647016
+ }
+}

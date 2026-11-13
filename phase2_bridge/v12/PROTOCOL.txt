@@ -1,0 +1,14 @@
+PROTOCOL v12 (written before any hybrid result was seen)
+Question: how well does a real detector in the loop work on CARLA frames, and does the controller ranking (fuzzy vs preempt) hold with it?
+Perception: hybrid = queue/wait/distance/speed from the CARLA API; emergency class evidence from a detector on a camera frame.
+ORACLE parts: association of detections to actors (projected-box IoU>=0.5), distance and speed of detected vehicles, lane of true vehicles.
+Camera: stop line of the opposite approach, h=16 m, pitch -28, fov 70, 1280x720 (the validation-capture setting); sees approach A0 only; ambulance always on A0.
+Detectors: ft = ~/carla_ft_runs/carla_ft best.pt (fine-tuned on CARLA frames of this junction; checkpoint chosen on captures_val: DEV, optimistic);
+           p1 = Phase-1 yolov8n_fold0 best.pt (real images only). imgsz 960, CPU, report threshold conf>=0.5 fixed in advance (not tuned).
+Design: weathers ClearNight, ClearNoon, Fog, HardRainNoon; policies preempt and fuzzy; ft seeds 0-9, p1 seeds 0-4; inflow 0.25, n-traffic 20, all-red 2; no visibility proxy.
+Metrics: ambulance found / recognised-as-emergency / exact class (frames where visible, area>=400 px, <=100 m, NO occlusion filter);
+         latency first-visible -> first-recognised; emergency false alarms (no actor under box), ordinary vehicles reported as emergency;
+         closed loop: amb_stopped_s, amb_time_to_cross_s (survivor-biased), norm_stopped_s_per_veh, max_wait_s, switches_per_h, false_preempt_s.
+Gates: (1) determinism: 3 identical repeats per policy; (2) camera perturbation check (fixed policy with/without camera) is informational.
+Not claimed: real-world performance, vision-only perception (no vision-based queue/distance/speed), other junctions, other emergency approaches.
+No parameter is changed after seeing results. Any change is a new version with its own label.

@@ -41,6 +41,7 @@ class Message:
     cls: str = ""
     conf: float = 0.0
     tid: str = ""
+    hops: int = 1          # 1 = from a direct neighbour, 2 = relayed / two junctions away
 
 
 @dataclass(frozen=True)
@@ -113,6 +114,11 @@ class JunctionConfig:
     state_msg_period_s: float = 1.0
     link_state_stale_s: float = 10.0
     notice_expire_s: float = 8.0
+    out_link2: Dict[str, str] = field(default_factory=dict)      # approach -> link two junctions ahead (hop 2)
+    downstream2_of: Dict[str, str] = field(default_factory=dict) # hop-2 link -> junction two ahead
+    hop_range: int = 1             # 1 = direct neighbours only, 2 = up to 2 junctions before and 2 after
+    hop2_weight: float = 0.5       # weight of the hop-2 occupancy in the downstream-pressure input
+    hop2_notices: bool = True      # send emergency advance notices two junctions ahead (needs hop_range 2)
 
     def __post_init__(self) -> None:
         for p in self.phases:
@@ -120,6 +126,10 @@ class JunctionConfig:
         self.validate()
 
     def validate(self) -> None:
+        if self.hop_range not in (1, 2):
+            raise ValueError("hop_range must be 1 or 2")
+        if not (0.0 <= self.hop2_weight <= 1.0):
+            raise ValueError("hop2_weight must be in [0, 1]")
         if not self.phases:
             raise ValueError("no phases")
         seen: Dict[str, int] = {}

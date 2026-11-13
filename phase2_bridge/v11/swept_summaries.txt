@@ -1,0 +1,116 @@
+== swept mild
+source=CARLA  rows=20  policies=['fuzzy', 'preempt']  seeds/policy={'fuzzy': 10, 'preempt': 10}
+  fuzzy        ambulance not crossed: 0 of 10
+  preempt      ambulance not crossed: 0 of 10
+
+per-policy mean +- sd [min, max] (n)
+box_jam_s
+  fuzzy            0.00 +-   0.00 [   0.00,    0.00] (n=10)
+  preempt          0.00 +-   0.00 [   0.00,    0.00] (n=10)
+box_stop_max
+  fuzzy            0.80 +-   0.63 [   0.00,    2.00] (n=10)
+  preempt          0.30 +-   0.48 [   0.00,    1.00] (n=10)
+norm_crossed_per_min
+  fuzzy            7.29 +-   1.47 [   4.29,    9.43] (n=10)
+  preempt          7.16 +-   1.18 [   5.14,    9.00] (n=10)
+amb_stopped_s
+  fuzzy            2.70 +-   1.49 [   2.00,    6.00] (n=10)
+  preempt          2.00 +-   0.00 [   2.00,    2.00] (n=10)
+amb_time_to_cross_s
+  fuzzy            8.90 +-   1.91 [   8.00,   13.00] (n=10)
+  preempt          8.80 +-   1.14 [   8.00,   11.00] (n=10)
+norm_stopped_s_per_veh
+  fuzzy            3.98 +-   0.99 [   2.11,    5.14] (n=10)
+  preempt          6.92 +-   1.93 [   4.61,    9.79] (n=10)
+max_wait_s
+  fuzzy           25.80 +-   9.39 [  13.00,   40.00] (n=10)
+  preempt         32.70 +-   5.81 [  19.00,   40.00] (n=10)
+switches_per_h
+  fuzzy          120.86 +-  29.82 [  77.14,  154.29] (n=10)
+  preempt        131.14 +-  14.60 [ 102.86,  154.29] (n=10)
+norm_n_veh
+  fuzzy           21.20 +-   3.36 [  16.00,   26.00] (n=10)
+  preempt         22.90 +-   2.69 [  19.00,   28.00] (n=10)
+false_preempt_s
+  fuzzy            6.20 +-   3.33 [   0.00,   13.00] (n=10)
+  preempt          8.40 +-   5.46 [   0.00,   15.00] (n=10)
+
+paired difference (policy - preempt), mean [95% bootstrap CI over seeds]
+box_jam_s
+  fuzzy           +0.00 [  +0.00,   +0.00] (n pairs=10)
+box_stop_max
+  fuzzy           +0.50 [  -0.10,   +1.00] (n pairs=10)
+norm_crossed_per_min
+  fuzzy           +0.13 [  -0.94,   +1.16] (n pairs=10)
+amb_stopped_s
+  fuzzy           +0.70 [  +0.00,   +1.70] (n pairs=10)
+amb_time_to_cross_s
+  fuzzy           +0.10 [  -1.10,   +1.40] (n pairs=10)
+norm_stopped_s_per_veh
+  fuzzy           -2.94 [  -4.49,   -1.57] (n pairs=10)
+max_wait_s
+  fuzzy           -6.90 [ -11.70,   -2.00] (n pairs=10)
+switches_per_h
+  fuzzy          -10.29 [ -30.86,   +7.71] (n pairs=10)
+norm_n_veh
+  fuzzy           -1.70 [  -3.00,   -0.50] (n pairs=10)
+false_preempt_s
+  fuzzy           -2.20 [  -5.10,   +1.20] (n pairs=10)
+== swept severe
+source=CARLA  rows=20  policies=['fuzzy', 'preempt']  seeds/policy={'fuzzy': 10, 'preempt': 10}
+  fuzzy        ambulance not crossed: 0 of 10
+  preempt      ambulance not crossed: 0 of 10
+
+per-policy mean +- sd [min, max] (n)
+box_jam_s
+  fuzzy            2.90 +-   9.17 [   0.00,   29.00] (n=10)
+  preempt          0.00 +-   0.00 [   0.00,    0.00] (n=10)
+box_stop_max
+  fuzzy            1.10 +-   2.47 [   0.00,    8.00] (n=10)
+  preempt          0.30 +-   0.67 [   0.00,    2.00] (n=10)
+norm_crossed_per_min
+  fuzzy            6.77 +-   1.45 [   4.29,    9.00] (n=10)
+  preempt          7.07 +-   1.66 [   4.29,    9.86] (n=10)
+amb_stopped_s
+  fuzzy            2.00 +-   0.00 [   2.00,    2.00] (n=10)
+  preempt          3.70 +-   3.53 [   2.00,   13.00] (n=10)
+amb_time_to_cross_s
+  fuzzy            8.10 +-   0.32 [   8.00,    9.00] (n=10)
+  preempt         10.20 +-   4.02 [   8.00,   20.00] (n=10)
+norm_stopped_s_per_veh
+  fuzzy            4.07 +-   1.46 [   2.48,    7.00] (n=10)
+  preempt          4.68 +-   1.96 [   1.95,    7.67] (n=10)
+max_wait_s
+  fuzzy           26.50 +-  10.30 [  10.00,   49.00] (n=10)
+  preempt         26.00 +-   6.36 [  16.00,   37.00] (n=10)
+switches_per_h
+  fuzzy          174.86 +-  35.96 [ 102.86,  231.43] (n=10)
+  preempt        180.00 +-  38.33 [ 154.29,  257.14] (n=10)
+norm_n_veh
+  fuzzy           21.30 +-   3.74 [  15.00,   28.00] (n=10)
+  preempt         22.80 +-   3.52 [  15.00,   27.00] (n=10)
+false_preempt_s
+  fuzzy           27.90 +-   5.82 [  19.00,   34.00] (n=10)
+  preempt         27.10 +-   7.17 [  19.00,   39.00] (n=10)
+
+paired difference (policy - preempt), mean [95% bootstrap CI over seeds]
+box_jam_s
+  fuzzy           +2.90 [  +0.00,   +8.70] (n pairs=10)
+box_stop_max
+  fuzzy           +0.80 [  -0.30,   +2.40] (n pairs=10)
+norm_crossed_per_min
+  fuzzy           -0.30 [  -1.33,   +0.73] (n pairs=10)
+amb_stopped_s
+  fuzzy           -1.70 [  -4.10,   +0.00] (n pairs=10)
+amb_time_to_cross_s
+  fuzzy           -2.10 [  -4.90,   -0.10] (n pairs=10)
+norm_stopped_s_per_veh
+  fuzzy           -0.61 [  -1.90,   +0.69] (n pairs=10)
+max_wait_s
+  fuzzy           +0.50 [  -7.40,   +8.50] (n pairs=10)
+switches_per_h
+  fuzzy           -5.14 [ -28.35,  +18.00] (n pairs=10)
+norm_n_veh
+  fuzzy           -1.50 [  -2.70,   -0.40] (n pairs=10)
+false_preempt_s
+  fuzzy           +0.80 [  -2.00,   +3.70] (n pairs=10)

@@ -98,7 +98,8 @@ class CarlaJunctionIO:
                                  speed=math.hypot(vel.x, vel.y))
         if self.noise is not None:
             dt = 1.0 if self._last_t is None else max(t - self._last_t, 1e-3)
-            seen = self.noise.step(t, dt, list(gt.values()), list(self.lights))
+            gts = sorted(gt.values(), key=lambda v: (str(v['lane']), round(float(v['dist_m']), 2), str(v['cls'])))  # PATCH_SORTED_NOISE_INPUT: actor order is not stable across runs
+            seen = self.noise.step(t, dt, gts, list(self.lights))
         else:
             seen = [Observation(v["id"], v["lane"], v["cls"], 1.0) for v in gt.values()]
         self._last_t = t

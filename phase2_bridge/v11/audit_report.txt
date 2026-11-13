@@ -1,0 +1,9 @@
+ft  ClearNoon     fuzzy    seed 0: IDENTICAL
+ft  ClearNoon     preempt  seed 0: IDENTICAL
+ft  Fog           fuzzy    seed 3: IDENTICAL
+ft  Fog           preempt  seed 3: IDENTICAL
+p1  ClearNight    fuzzy    seed 1: IDENTICAL
+p1  ClearNight    preempt  seed 1: IDENTICAL
+p1  HardRainNoon  fuzzy    seed 2: IDENTICAL
+p1  HardRainNoon  preempt  seed 2: IDENTICAL
+audit: 8/8 rerun rows identical to stored rows (all fields except wall_s)

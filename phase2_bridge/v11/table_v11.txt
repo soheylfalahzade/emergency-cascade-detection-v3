@@ -1,0 +1,110 @@
+
+=== results_v10_ft_ClearNight   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                  3.10       2.00     +1.10       [+0.00, +3.30]  10
+amb_time_to_cross_s            9.20       8.30     +0.90       [-0.70, +3.50]  10
+norm_stopped_s_per_veh         4.89       5.99     -1.10       [-2.24, +0.12]  10
+max_wait_s                    23.90      29.80     -5.90      [-11.50, -0.30]  10
+switches_per_h               187.71     169.71    +18.00      [-2.57, +38.57]  10
+false_preempt_s               22.90      25.00     -2.10      [-10.60, +4.90]  10
+
+=== results_v10_ft_ClearNoon   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                  2.60       2.80     -0.20       [-1.10, +0.80]  10
+amb_time_to_cross_s            8.90       9.10     -0.20       [-1.40, +1.20]  10
+norm_stopped_s_per_veh         4.77       4.19     +0.58       [-0.29, +1.43]  10
+max_wait_s                    23.40      25.90     -2.50       [-7.10, +2.50]  10
+switches_per_h               241.71     221.14    +20.57      [+0.00, +41.14]  10
+false_preempt_s               54.20      48.90     +5.30       [+1.40, +9.30]  10
+
+=== results_v10_ft_Fog   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                  3.30       3.50     -0.20       [-2.10, +1.40]  10
+amb_time_to_cross_s            9.60      10.20     -0.60       [-2.90, +1.40]  10
+norm_stopped_s_per_veh         3.86       3.97     -0.12       [-1.26, +1.17]  10
+max_wait_s                    20.40      20.80     -0.40       [-3.90, +2.80]  10
+switches_per_h               303.43     295.71     +7.71     [-15.43, +38.57]  10
+false_preempt_s               73.20      75.30     -2.10       [-8.10, +4.40]  10
+
+=== results_v10_ft_HardRainNoon   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                  3.20       2.60     +0.60       [-1.20, +2.80]  10
+amb_time_to_cross_s            9.60       8.70     +0.90       [-1.40, +3.80]  10
+norm_stopped_s_per_veh         4.27       3.88     +0.39       [-0.59, +1.46]  10
+max_wait_s                    18.50      20.70     -2.20       [-7.40, +2.90]  10
+switches_per_h               275.14     234.00    +41.14      [-2.57, +87.43]  10
+false_preempt_s               64.90      63.70     +1.20       [-3.20, +5.70]  10
+
+=== results_v10_p1_ClearNight   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 27.20      15.20    +12.00      [-3.20, +24.20]   5
+amb_time_to_cross_s           35.40      22.60    +12.80      [-2.60, +25.20]   5
+norm_stopped_s_per_veh         7.81       8.26     -0.45       [-3.35, +2.41]   5
+max_wait_s                    41.60      32.20     +9.40      [-2.60, +22.20]   5
+switches_per_h                97.71     113.14    -15.43     [-41.14, +20.57]   5
+false_preempt_s                5.60       3.60     +2.00       [-1.20, +5.00]   5
+
+=== results_v10_p1_ClearNoon   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 16.00      15.20     +0.80     [-20.00, +21.60]   5
+amb_time_to_cross_s           22.80      22.60     +0.20     [-21.60, +22.00]   5
+norm_stopped_s_per_veh        11.28       7.66     +3.62       [+1.08, +5.34]   5
+max_wait_s                    45.60      33.80    +11.80      [+7.80, +15.60]   5
+switches_per_h                72.00     123.43    -51.43     [-77.14, -30.86]   5
+false_preempt_s                7.20       5.60     +1.60       [-1.80, +4.60]   5
+
+=== results_v10_p1_Fog   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 35.00       8.60    +26.40      [-2.60, +55.40]   5
+amb_time_to_cross_s           42.00      15.80    +26.20      [-4.60, +57.00]   5
+norm_stopped_s_per_veh        14.27       7.14     +7.13      [+3.38, +10.89]   5
+max_wait_s                    54.60      32.60    +22.00     [+12.80, +31.20]   5
+switches_per_h                51.43     102.86    -51.43     [-51.43, -51.43]   5
+false_preempt_s                0.00       0.00     +0.00       [+0.00, +0.00]   5
+
+=== results_v10_p1_HardRainNoon   [fuzzy - preempt]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                  8.80       8.60     +0.20       [+0.00, +0.60]   5
+amb_time_to_cross_s           16.80      15.80     +1.00       [+0.00, +2.40]   5
+norm_stopped_s_per_veh         7.32       7.14     +0.18       [-1.07, +1.31]   5
+max_wait_s                    47.80      32.60    +15.20      [+8.80, +23.40]   5
+switches_per_h                72.00     102.86    -30.86     [-41.14, -25.71]   5
+false_preempt_s                0.00       0.00     +0.00       [+0.00, +0.00]   5
+
+=== results_v10b_p1_ClearNight   [fuzzy(visibility proxy) - fuzzy(no visibility)]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 20.80      27.20     -6.40      [-19.20, +6.60]   5
+amb_time_to_cross_s           28.40      35.40     -7.00      [-21.00, +8.20]   5
+norm_stopped_s_per_veh         6.38       7.81     -1.43       [-3.47, +0.60]   5
+max_wait_s                    34.40      41.60     -7.20      [-17.20, +2.80]   5
+switches_per_h                97.71      97.71     -0.00     [-25.71, +20.57]   5
+false_preempt_s                0.80       5.60     -4.80       [-7.20, -2.20]   5
+
+=== results_v10b_p1_ClearNoon   [fuzzy(visibility proxy) - fuzzy(no visibility)]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 16.00      16.00     +0.00       [+0.00, +0.00]   5
+amb_time_to_cross_s           22.80      22.80     +0.00       [+0.00, +0.00]   5
+norm_stopped_s_per_veh        11.28      11.28     +0.00       [+0.00, +0.00]   5
+max_wait_s                    45.60      45.60     +0.00       [+0.00, +0.00]   5
+switches_per_h                72.00      72.00     +0.00       [+0.00, +0.00]   5
+false_preempt_s                7.20       7.20     +0.00       [+0.00, +0.00]   5
+
+=== results_v10b_p1_Fog   [fuzzy(visibility proxy) - fuzzy(no visibility)]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 35.00      35.00     +0.00       [+0.00, +0.00]   5
+amb_time_to_cross_s           42.00      42.00     +0.00       [+0.00, +0.00]   5
+norm_stopped_s_per_veh        14.27      14.27     +0.00       [+0.00, +0.00]   5
+max_wait_s                    54.60      54.60     +0.00       [+0.00, +0.00]   5
+switches_per_h                51.43      51.43     +0.00       [+0.00, +0.00]   5
+false_preempt_s                0.00       0.00     +0.00       [+0.00, +0.00]   5
+
+=== results_v10b_p1_HardRainNoon   [fuzzy(visibility proxy) - fuzzy(no visibility)]   ambulance not crossed: first=0 second=0
+metric                        first     second      diff               95% CI   n
+amb_stopped_s                 23.40       8.80    +14.60      [-5.00, +31.40]   5
+amb_time_to_cross_s           31.40      16.80    +14.60      [-6.80, +32.20]   5
+norm_stopped_s_per_veh        11.89       7.32     +4.57       [+1.83, +7.03]   5
+max_wait_s                    47.40      47.80     -0.40     [-16.20, +13.60]   5
+switches_per_h                56.57      72.00    -15.43      [-25.71, -5.14]   5
+false_preempt_s                0.00       0.00     +0.00       [+0.00, +0.00]   5
+
+wrote v11\table_v11.csv

@@ -24,26 +24,39 @@ APP_PHASE = {a: p for p, apps in PHASES.items() for a in apps}
 CAP, HEADWAY, TRAVEL, EM_ETA0 = 20, 2.0, 10.0, 30.0
 
 
-def make_cfg(j: int) -> JunctionConfig:
-    in_link, out_link, up, down, tt = {}, {}, {}, {}, {}
+def names(n: int) -> Tuple[str, ...]:
+    return tuple(f"J{i + 1}" for i in range(n))
+
+
+def make_cfg(j: int, n: int = 3, hops: int = 1, hop2_weight: float = 0.5,
+             hop2_notices: bool = True) -> JunctionConfig:
+    """Junction j of an n-junction corridor. hops=2: also uses the link two junctions ahead / notifies 2 ahead."""
+    nm = names(n)
+    in_link, out_link, out2, up, down, down2, tt = {}, {}, {}, {}, {}, {}, {}
     if j == 0:
         in_link["A1"] = "LIN"
     else:
         in_link["A1"] = f"L{j}{j + 1}"
-        up[in_link["A1"]] = JUNCTIONS[j - 1]
-    if j < 2:
+        up[in_link["A1"]] = nm[j - 1]
+    if j < n - 1:
         out_link["A1"] = f"L{j + 1}{j + 2}"
-        down[out_link["A1"]] = JUNCTIONS[j + 1]
+        down[out_link["A1"]] = nm[j + 1]
         tt[out_link["A1"]] = TRAVEL
-    return JunctionConfig(name=JUNCTIONS[j], phases=dict(PHASES), in_link=in_link, out_link=out_link,
-                          upstream_of=up, downstream_of=down, link_travel_s=tt)
+    if hops >= 2 and j < n - 2:
+        out2["A1"] = f"L{j + 2}{j + 3}"
+        down2[out2["A1"]] = nm[j + 2]
+        tt[out2["A1"]] = TRAVEL
+    return JunctionConfig(name=nm[j], phases=dict(PHASES), in_link=in_link, out_link=out_link,
+                          upstream_of=up, downstream_of=down, link_travel_s=tt,
+                          out_link2=out2, downstream2_of=down2, hop_range=2 if hops >= 2 else 1,
+                          hop2_weight=hop2_weight, hop2_notices=hop2_notices)
 
 
 # ----------------------------------------------------------------------------- policies
 class _Machine:
-    def __init__(self, yellow: float = 3.0) -> None:
-        self.yellow = yellow
-        self.state = {n: dict(phase=0, t=0.0, yel=0.0, pend=None) for n in JUNCTIONS}
+    def __init__(self, yellow: float = 3.0, n: int = 3) -> None:
+        self.yellow, self.names = yellow, names(n)
+        self.state = {k: dict(phase=0, t=0.0, yel=0.0, pend=None) for k in self.names}
 
     def _advance(self, n: str, dt: float, want: Optional[int]) -> Tuple[int, bool]:
         s = self.state[n]
@@ -61,8 +74,8 @@ class _Machine:
 
 
 class FixedTimePolicy(_Machine):
-    def __init__(self, green: float = 30.0, yellow: float = 3.0) -> None:
-        super().__init__(yellow)
+    def __init__(self, green: float = 30.0, yellow: float = 3.0, n: int = 3) -> None:
+        super().__init__(yellow, n)
         self.green = green
 
     def _cycle_want(self, n: str, dt: float) -> Optional[int]:
@@ -71,7 +84,7 @@ class FixedTimePolicy(_Machine):
 
     def step(self, t, dt, obs):
         return {n: Decision(t, *self._advance(n, dt, self._cycle_want(n, dt)), "fixed", "", {}, (), ())
-                for n in JUNCTIONS}
+                for n in self.names}
 
 
 class FixedPreemptPolicy(FixedTimePolicy):
@@ -79,7 +92,7 @@ class FixedPreemptPolicy(FixedTimePolicy):
 
     def step(self, t, dt, obs):
         out = {}
-        for n in JUNCTIONS:
+        for n in self.names:
             s = self.state[n]
             want_em = None
             for tr in obs[n].emergencies:
@@ -101,15 +114,14 @@ class FixedPreemptPolicy(FixedTimePolicy):
 
 
 class MaxPressurePolicy(_Machine):
-    DOWN = {("J1", "A1"): ("J2", "A1"), ("J2", "A1"): ("J3", "A1")}
-
-    def __init__(self, min_green: float = 10.0, max_green: float = 60.0, yellow: float = 3.0) -> None:
-        super().__init__(yellow)
+    def __init__(self, min_green: float = 10.0, max_green: float = 60.0, yellow: float = 3.0, n: int = 3) -> None:
+        super().__init__(yellow, n)
         self.min_green, self.max_green = min_green, max_green
+        self.DOWN = {(self.names[i], "A1"): (self.names[i + 1], "A1") for i in range(n - 1)}
 
     def step(self, t, dt, obs):
         out = {}
-        for n in JUNCTIONS:
+        for n in self.names:
             s, pr = self.state[n], {}
             for p, apps in PHASES.items():
                 v = 0.0
@@ -130,10 +142,12 @@ class MaxPressurePolicy(_Machine):
 
 
 class FuzzyPolicy:
-    def __init__(self, priority: bool = True, comm: bool = True, ignore_visibility: bool = False, seed: int = 0) -> None:
-        self.priority, self.ignore_visibility = priority, ignore_visibility
-        ctl = {n: FuzzyJunctionController(make_cfg(j), phase0=0) for j, n in enumerate(JUNCTIONS)}
-        self.net = NetworkController(ctl, MessageBus(drop_p=0.0 if comm else 1.0, seed=seed))
+    def __init__(self, priority: bool = True, comm: bool = True, ignore_visibility: bool = False, seed: int = 0,
+                 n: int = 3, hops: int = 1, delay_s: float = 0.0, drop_p: float = 0.0,
+                 hop2_weight: float = 0.5, hop2_notices: bool = True) -> None:
+        self.priority, self.ignore_visibility, self.hops = priority, ignore_visibility, hops
+        ctl = {nm: FuzzyJunctionController(make_cfg(j, n, hops, hop2_weight, hop2_notices), phase0=0) for j, nm in enumerate(names(n))}
+        self.net = NetworkController(ctl, MessageBus(delay_s=delay_s, drop_p=drop_p if comm else 1.0, seed=seed))
 
     def step(self, t, dt, obs):
         o2 = {}
@@ -147,20 +161,22 @@ class FuzzyPolicy:
         return self.net.step(t, dt, o2)
 
 
-POLICIES = {
-    "Fixed-time": lambda s=0: FixedTimePolicy(),
-    "Fixed+preempt": lambda s=0: FixedPreemptPolicy(),
-    "Max-pressure": lambda s=0: MaxPressurePolicy(),
-    "Fuzzy (no priority)": lambda s=0: FuzzyPolicy(priority=False, seed=s),
-    "Fuzzy (no comm)": lambda s=0: FuzzyPolicy(comm=False, seed=s),
-    "Fuzzy (full)": lambda s=0: FuzzyPolicy(seed=s),
-    "Fuzzy (ignore visibility)": lambda s=0: FuzzyPolicy(ignore_visibility=True, seed=s),
+POLICIES = {   # every entry: factory(seed=0, n=3, **bus_kwargs)  (bus_kwargs: delay_s, drop_p; fuzzy only)
+    "Fixed-time": lambda s=0, n=3, **kw: FixedTimePolicy(n=n),
+    "Fixed+preempt": lambda s=0, n=3, **kw: FixedPreemptPolicy(n=n),
+    "Max-pressure": lambda s=0, n=3, **kw: MaxPressurePolicy(n=n),
+    "Fuzzy (no priority)": lambda s=0, n=3, **kw: FuzzyPolicy(priority=False, seed=s, n=n, **kw),
+    "Fuzzy (no comm)": lambda s=0, n=3, **kw: FuzzyPolicy(comm=False, seed=s, n=n, **kw),
+    "Fuzzy (full)": lambda s=0, n=3, **kw: FuzzyPolicy(seed=s, n=n, hops=1, **kw),
+    "Fuzzy (2-hop)": lambda s=0, n=3, **kw: FuzzyPolicy(seed=s, n=n, hops=2, **kw),
+    "Fuzzy (ignore visibility)": lambda s=0, n=3, **kw: FuzzyPolicy(ignore_visibility=True, seed=s, n=n, **kw),
 }
 
 
 # ----------------------------------------------------------------------------- simulator
 @dataclass
 class Scenario:
+    n_junc: int = 3
     duration_s: float = 900.0
     lam: float = 0.12                      # ordinary arrivals, veh/s per external approach
     n_emergency: int = 4
@@ -191,22 +207,24 @@ class Em:
 class CorridorSim:
     def __init__(self, policy, sc: Scenario, seed: int, log: bool = False) -> None:
         self.policy, self.sc, self.log_on, self.log = policy, sc, log, []
+        self.n, self.names = sc.n_junc, names(sc.n_junc)
+        self.hops = int(getattr(policy, 'hops', 1))
         self.rng_arr = np.random.default_rng(seed)
         self.rng_obs = np.random.default_rng(seed + 7919)
         self.ems = self._make_ems(np.random.default_rng(seed + 104729))
         self.em_by_id = {e.id: e for e in self.ems}
-        self.queue = {j: {a: 0 for a in APPS} for j in range(3)}
-        self.wait = {j: {a: 0.0 for a in APPS} for j in range(3)}
-        self.credit = {j: {a: 0.0 for a in APPS} for j in range(3)}
+        self.queue = {j: {a: 0 for a in APPS} for j in range(self.n)}
+        self.wait = {j: {a: 0.0 for a in APPS} for j in range(self.n)}
+        self.credit = {j: {a: 0.0 for a in APPS} for j in range(self.n)}
         self.arrivals: List[Tuple[float, int, str]] = []
-        self.noise_good = [PerceptionNoise(dataclasses.replace(sc.noise, seed=seed * 10 + j)) for j in range(3)]
-        self.noise_bad = ([PerceptionNoise(dataclasses.replace(sc.noise_bad, seed=seed * 10 + j + 5)) for j in range(3)]
+        self.noise_good = [PerceptionNoise(dataclasses.replace(sc.noise, seed=seed * 10 + j)) for j in range(self.n)]
+        self.noise_bad = ([PerceptionNoise(dataclasses.replace(sc.noise_bad, seed=seed * 10 + j + 5)) for j in range(self.n)]
                           if sc.noise_bad is not None else None)
         self.first_seen: Dict[tuple, float] = {}
         self.last_seen: Dict[tuple, float] = {}
         self.q_hist: List[float] = []
         self.modes: Dict[str, int] = {}
-        self.prev_yellow = {n: False for n in JUNCTIONS}
+        self.prev_yellow = {n: False for n in self.names}
         self.exits = self.ord_passages = self.arrived = self.spill = self.switches = self.false_preempt = 0
         self.max_wait = 0.0
 
@@ -242,7 +260,9 @@ class CorridorSim:
             self._arrivals(t, dt)
             self._update_ems(t, dt)
             active = [e for e in self.ems if e.state in ("approach", "queued")]
-            present = {e.j for e in active} | {e.j + 1 for e in active if e.corridor and e.a == "A1" and e.j < 2}
+            present = {e.j for e in active}
+            for h in range(1, self.hops + 1):
+                present |= {e.j + h for e in active if e.corridor and e.a == "A1" and e.j + h < self.n}
             obs = self._observe(t, dt)
             dec = self.policy.step(t, dt, obs)
             self._apply(t, dt, dec)
@@ -252,7 +272,7 @@ class CorridorSim:
         return self._summary()
 
     def _arrivals(self, t, dt):
-        for j in range(3):
+        for j in range(self.n):
             for a in APPS:
                 if a == "A1" and j > 0:
                     continue
@@ -286,7 +306,7 @@ class CorridorSim:
         cfg = sc.noise_bad if bad else sc.noise
         vis = sc.vis_low if (sc.vis_drop and self._in_window(t)) else 1.0
         obs = {}
-        for j, name in enumerate(JUNCTIONS):
+        for j, name in enumerate(self.names):
             apps = {}
             for a in APPS:
                 q = self.queue[j][a]
@@ -314,7 +334,7 @@ class CorridorSim:
         return obs
 
     def _apply(self, t, dt, dec):
-        for j, name in enumerate(JUNCTIONS):
+        for j, name in enumerate(self.names):
             d, served = dec[name], set()
             if not d.yellow:
                 for a in PHASES[d.phase]:
@@ -323,7 +343,7 @@ class CorridorSim:
                         if self.queue[j][a] <= 0:
                             self.credit[j][a] = 1.0
                             break
-                        if a == "A1" and j < 2 and self.queue[j + 1]["A1"] >= CAP:
+                        if a == "A1" and j < self.n - 1 and self.queue[j + 1]["A1"] >= CAP:
                             self.spill += 1
                             self.credit[j][a] = 1.0
                             break
@@ -347,13 +367,13 @@ class CorridorSim:
                 e.ahead = max(e.ahead - 1, 0)
         if front is not None:
             front.delays.append(t - front.t_q)
-            if front.corridor and a == "A1" and j < 2:
+            if front.corridor and a == "A1" and j < self.n - 1:
                 front.j, front.state, front.eta = j + 1, "approach", TRAVEL
             else:
                 front.state = "done"
             return
         self.ord_passages += 1
-        if a == "A1" and j < 2:
+        if a == "A1" and j < self.n - 1:
             self.arrivals.append((t + TRAVEL, j + 1, "A1"))
         else:
             self.exits += 1
@@ -363,9 +383,9 @@ class CorridorSim:
         for e in self.ems:
             if e.state == "queued":
                 emq[(e.j, e.a)] = emq.get((e.j, e.a), 0) + 1
-        tot = sum(self.queue[j][a] - emq.get((j, a), 0) for j in range(3) for a in APPS)
+        tot = sum(self.queue[j][a] - emq.get((j, a), 0) for j in range(self.n) for a in APPS)
         self.q_hist.append(tot / 12.0)
-        for j, n in enumerate(JUNCTIONS):
+        for j, n in enumerate(self.names):
             d = dec[n]
             self.modes[d.mode] = self.modes.get(d.mode, 0) + 1
             if d.yellow and not self.prev_yellow[n]:
@@ -379,7 +399,7 @@ class CorridorSim:
         self.log.append(dict(
             t=t,
             j={n: dict(phase=dec[n].phase, yellow=dec[n].yellow, mode=dec[n].mode, reason=dec[n].reason,
-                       q=[self.queue[j][a] for a in APPS]) for j, n in enumerate(JUNCTIONS)},
+                       q=[self.queue[j][a] for a in APPS]) for j, n in enumerate(self.names)},
             ems=[dict(id=e.id, cls=e.cls, j=e.j, a=e.a, state=e.state, eta=e.eta, ahead=e.ahead)
                  for e in self.ems if e.state in ("approach", "queued")]))
 

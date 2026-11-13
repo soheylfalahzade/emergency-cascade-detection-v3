@@ -18,6 +18,7 @@ EMERGENCY: Tuple[str, ...] = ("ambulance", "police", "firetruck")
 class NoiseConfig:
     p_miss: float = 0.0            # chance a vehicle is not reported in a step
     p_miss_far: float = 0.0        # extra miss chance beyond far_m from the stop line
+    p_miss_emerg: float = -1.0     # miss chance for emergency classes; <0 = same as p_miss (legacy). far_m extra then applies to emergency only
     far_m: float = 60.0
     p_emerg_as_car: float = 0.0    # chance a real emergency vehicle is reported as 'car'
     fp_emerg_per_min: float = 0.0  # false emergency reports per minute per lane (Poisson)
@@ -55,7 +56,10 @@ class PerceptionNoise:
         for v in vehicles:
             vid, lane, cls = str(v["id"]), str(v["lane"]), str(v["cls"])
             dist = float(v.get("dist_m", 0.0))
-            p_miss = min(c.p_miss + (c.p_miss_far if dist > c.far_m else 0.0), 1.0)
+            is_em = cls in EMERGENCY
+            base = c.p_miss_emerg if (is_em and c.p_miss_emerg >= 0.0) else c.p_miss
+            far_add = c.p_miss_far if (dist > c.far_m and (is_em or c.p_miss_emerg < 0.0)) else 0.0
+            p_miss = min(base + far_add, 1.0)
             if self.rng.random() < p_miss:
                 held = self._last_seen.get(vid)
                 if held is not None and t - held[0] <= c.hold_s:

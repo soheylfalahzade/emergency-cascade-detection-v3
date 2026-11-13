@@ -1,0 +1,160 @@
+
+=== HYBRID (CARLA, detector=ft, weather=ClearNight)
+detector on emergency vehicles visible to the camera (frames, pooled over 20 runs): visible=264  found(IoU>=0.5, any class)=1.00  recognised as emergency=1.00  exact class=1.00
+runs where the ambulance was visible but NEVER recognised as emergency: 0/20 | latency first-visible -> first-recognised (s): median 0.0 min 0.0 max 1.0 (n=20)
+false emergency alarms (no actor under the box): frames/run=0.1  detections/min=0.04 | ordinary vehicles reported as emergency: 1.3/run | ambiguous(IoU 0.3-0.5): 1.0/run | detector ms/frame=64 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +0.50 [  +0.00,   +1.30] n=10
+  amb_time_to_cross_s        -0.10 [  -1.10,   +0.90] n=10
+  norm_stopped_s_per_veh     -2.03 [  -3.36,   -0.78] n=10
+  max_wait_s                 +0.00 [  -6.40,   +6.10] n=10
+  switches_per_h            -10.29 [ -23.14,   +2.57] n=10
+  false_preempt_s            +0.50 [  +0.00,   +1.30] n=10
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              +0.10 [  +0.00,   +0.30] n=10
+  false_preempt_s           -24.90 [ -29.70,  -20.50] n=10
+  norm_stopped_s_per_veh     +0.71 [  -0.64,   +2.20] n=10
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              -0.50 [  -3.10,   +1.30] n=10
+  false_preempt_s           -22.30 [ -26.30,  -17.70] n=10
+  norm_stopped_s_per_veh     -0.22 [  -1.26,   +0.92] n=10
+
+=== HYBRID (CARLA, detector=ft, weather=ClearNoon)
+detector on emergency vehicles visible to the camera (frames, pooled over 20 runs): visible=259  found(IoU>=0.5, any class)=1.00  recognised as emergency=1.00  exact class=1.00
+runs where the ambulance was visible but NEVER recognised as emergency: 0/20 | latency first-visible -> first-recognised (s): median 0.0 min 0.0 max 0.0 (n=20)
+false emergency alarms (no actor under the box): frames/run=0.1  detections/min=0.04 | ordinary vehicles reported as emergency: 4.0/run | ambiguous(IoU 0.3-0.5): 1.8/run | detector ms/frame=60 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +0.60 [  +0.00,   +1.50] n=10
+  amb_time_to_cross_s        +0.30 [  -0.70,   +1.30] n=10
+  norm_stopped_s_per_veh     -2.15 [  -3.17,   -1.11] n=10
+  max_wait_s                 -2.70 [  -9.70,   +4.10] n=10
+  switches_per_h            -15.43 [ -30.86,   +0.00] n=10
+  false_preempt_s            +0.20 [  -0.80,   +1.30] n=10
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              -0.80 [  -1.70,   +0.00] n=10
+  false_preempt_s           -47.40 [ -52.30,  -41.80] n=10
+  norm_stopped_s_per_veh     +2.42 [  +1.57,   +3.26] n=10
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              +0.00 [  -1.00,   +1.10] n=10
+  false_preempt_s           -52.50 [ -56.00,  -48.50] n=10
+  norm_stopped_s_per_veh     -0.30 [  -1.57,   +1.03] n=10
+
+=== HYBRID (CARLA, detector=ft, weather=Fog)
+detector on emergency vehicles visible to the camera (frames, pooled over 20 runs): visible=257  found(IoU>=0.5, any class)=1.00  recognised as emergency=1.00  exact class=0.99
+runs where the ambulance was visible but NEVER recognised as emergency: 0/20 | latency first-visible -> first-recognised (s): median 0.0 min 0.0 max 0.0 (n=20)
+false emergency alarms (no actor under the box): frames/run=0.2  detections/min=0.11 | ordinary vehicles reported as emergency: 9.1/run | ambiguous(IoU 0.3-0.5): 2.5/run | detector ms/frame=64 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +0.60 [  +0.00,   +1.50] n=10
+  amb_time_to_cross_s        +0.50 [  -0.60,   +1.80] n=10
+  norm_stopped_s_per_veh     -2.21 [  -4.07,   -0.51] n=10
+  max_wait_s                 +2.40 [  -5.40,  +10.20] n=10
+  switches_per_h            -28.29 [ -41.14,  -15.43] n=10
+  false_preempt_s            -1.70 [  -4.80,   +1.20] n=10
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              -1.50 [  -3.10,   -0.30] n=10
+  false_preempt_s           -70.30 [ -75.60,  -65.10] n=10
+  norm_stopped_s_per_veh     +2.45 [  +0.83,   +3.56] n=10
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              -0.70 [  -2.20,   +0.70] n=10
+  false_preempt_s           -69.90 [ -75.90,  -63.80] n=10
+  norm_stopped_s_per_veh     +0.35 [  -1.23,   +1.98] n=10
+
+=== HYBRID (CARLA, detector=ft, weather=HardRainNoon)
+detector on emergency vehicles visible to the camera (frames, pooled over 20 runs): visible=255  found(IoU>=0.5, any class)=1.00  recognised as emergency=0.99  exact class=0.99
+runs where the ambulance was visible but NEVER recognised as emergency: 0/20 | latency first-visible -> first-recognised (s): median 0.0 min 0.0 max 0.0 (n=20)
+false emergency alarms (no actor under the box): frames/run=0.1  detections/min=0.04 | ordinary vehicles reported as emergency: 6.2/run | ambiguous(IoU 0.3-0.5): 2.2/run | detector ms/frame=63 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +0.50 [  +0.00,   +1.30] n=10
+  amb_time_to_cross_s        +0.10 [  -0.80,   +1.10] n=10
+  norm_stopped_s_per_veh     -2.46 [  -3.67,   -1.37] n=10
+  max_wait_s                 -3.00 [ -11.00,   +4.70] n=10
+  switches_per_h            -18.00 [ -30.86,   -5.14] n=10
+  false_preempt_s            -0.70 [  -3.20,   +1.40] n=10
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              -0.60 [  -1.80,   +0.00] n=10
+  false_preempt_s           -60.30 [ -66.10,  -53.90] n=10
+  norm_stopped_s_per_veh     +2.63 [  +1.95,   +3.42] n=10
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              -0.70 [  -1.90,   +0.20] n=10
+  false_preempt_s           -62.20 [ -68.20,  -55.60] n=10
+  norm_stopped_s_per_veh     -0.21 [  -1.40,   +1.16] n=10
+
+=== HYBRID (CARLA, detector=p1, weather=ClearNight)
+detector on emergency vehicles visible to the camera (frames, pooled over 10 runs): visible=203  found(IoU>=0.5, any class)=0.18  recognised as emergency=0.18  exact class=0.18
+runs where the ambulance was visible but NEVER recognised as emergency: 0/10 | latency first-visible -> first-recognised (s): median 9.0 min 8.0 max 29.0 (n=10)
+false emergency alarms (no actor under the box): frames/run=0.1  detections/min=0.04 | ordinary vehicles reported as emergency: 0.9/run | ambiguous(IoU 0.3-0.5): 0.0/run | detector ms/frame=60 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +0.20 [  -5.60,   +6.00] n=5
+  amb_time_to_cross_s        -0.20 [  -7.20,   +6.80] n=5
+  norm_stopped_s_per_veh     -2.59 [  -4.47,   -0.50] n=5
+  max_wait_s                 -3.00 [ -11.60,   +7.60] n=5
+  switches_per_h            +10.29 [ -10.29,  +25.71] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              -6.60 [ -19.80,   +0.00] n=5
+  false_preempt_s            -3.60 [  -6.60,   -0.60] n=5
+  norm_stopped_s_per_veh     -1.12 [  -2.05,   -0.19] n=5
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s             -18.40 [ -38.40,   +0.20] n=5
+  false_preempt_s            -5.60 [  -7.60,   -4.00] n=5
+  norm_stopped_s_per_veh     -3.26 [  -6.84,   -0.13] n=5
+
+=== HYBRID (CARLA, detector=p1, weather=ClearNoon)
+detector on emergency vehicles visible to the camera (frames, pooled over 10 runs): visible=242  found(IoU>=0.5, any class)=0.01  recognised as emergency=0.01  exact class=0.01
+runs where the ambulance was visible but NEVER recognised as emergency: 8/10 | latency first-visible -> first-recognised (s): median 21.0 min 10.0 max 32.0 (n=2)
+false emergency alarms (no actor under the box): frames/run=0.5  detections/min=0.21 | ordinary vehicles reported as emergency: 0.3/run | ambiguous(IoU 0.3-0.5): 0.0/run | detector ms/frame=65 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +8.00 [  -1.00,  +17.00] n=5
+  amb_time_to_cross_s        +7.60 [  -1.60,  +16.00] n=5
+  norm_stopped_s_per_veh     -2.45 [  -4.30,   -0.48] n=5
+  max_wait_s                 -2.00 [ -10.60,   +7.60] n=5
+  switches_per_h             +5.14 [ -10.29,  +20.57] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              -6.60 [ -19.80,   +0.00] n=5
+  false_preempt_s            -5.60 [  -8.00,   -3.20] n=5
+  norm_stopped_s_per_veh     -0.52 [  -1.54,   +0.19] n=5
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              +0.60 [ -19.80,  +21.40] n=5
+  false_preempt_s            -7.20 [  -8.40,   -5.60] n=5
+  norm_stopped_s_per_veh     -6.59 [  -8.74,   -4.28] n=5
+
+=== HYBRID (CARLA, detector=p1, weather=Fog)
+detector on emergency vehicles visible to the camera (frames, pooled over 10 runs): visible=242  found(IoU>=0.5, any class)=0.00  recognised as emergency=0.00  exact class=0.00
+runs where the ambulance was visible but NEVER recognised as emergency: 10/10 | latency first-visible -> first-recognised (s): n/a
+false emergency alarms (no actor under the box): frames/run=0.0  detections/min=0.00 | ordinary vehicles reported as emergency: 0.1/run | ambiguous(IoU 0.3-0.5): 0.0/run | detector ms/frame=64 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +8.00 [  -1.00,  +17.00] n=5
+  amb_time_to_cross_s        +7.60 [  -1.60,  +16.00] n=5
+  norm_stopped_s_per_veh     -2.45 [  -4.30,   -0.48] n=5
+  max_wait_s                 -2.00 [ -10.60,   +7.60] n=5
+  switches_per_h             +5.14 [ -10.29,  +20.57] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              +0.00 [  +0.00,   +0.00] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+  norm_stopped_s_per_veh     +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s             -18.40 [ -49.40,  +16.60] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+  norm_stopped_s_per_veh     -9.58 [ -12.69,   -5.82] n=5
+
+=== HYBRID (CARLA, detector=p1, weather=HardRainNoon)
+detector on emergency vehicles visible to the camera (frames, pooled over 10 runs): visible=242  found(IoU>=0.5, any class)=0.05  recognised as emergency=0.00  exact class=0.00
+runs where the ambulance was visible but NEVER recognised as emergency: 10/10 | latency first-visible -> first-recognised (s): n/a
+false emergency alarms (no actor under the box): frames/run=0.0  detections/min=0.00 | ordinary vehicles reported as emergency: 0.0/run | ambiguous(IoU 0.3-0.5): 0.0/run | detector ms/frame=63 | frame lag max=0
+closed loop, fuzzy - preempt (paired by seed, 95% bootstrap CI); ambulance not crossed: fuzzy=0 preempt=0
+  amb_stopped_s              +8.00 [  -1.00,  +17.00] n=5
+  amb_time_to_cross_s        +7.60 [  -1.60,  +16.00] n=5
+  norm_stopped_s_per_veh     -2.45 [  -4.30,   -0.48] n=5
+  max_wait_s                 -2.00 [ -10.60,   +7.60] n=5
+  switches_per_h             +5.14 [ -10.29,  +20.57] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (preempt, same seeds):
+  amb_stopped_s              +0.00 [  +0.00,   +0.00] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+  norm_stopped_s_per_veh     +0.00 [  +0.00,   +0.00] n=5
+hybrid - injected-noise model (fuzzy, same seeds):
+  amb_stopped_s              +7.80 [  -1.40,  +17.00] n=5
+  false_preempt_s            +0.00 [  +0.00,   +0.00] n=5
+  norm_stopped_s_per_veh     -2.63 [  -4.59,   -1.07] n=5

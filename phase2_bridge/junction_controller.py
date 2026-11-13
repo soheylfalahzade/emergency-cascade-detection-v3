@@ -197,14 +197,22 @@ class FuzzyJunctionController:
         return self.phase, self.t_in_phase
 
     # ------------------------------------------------------------------ ordinary traffic
-    def _downstream(self, approach: str, t: float) -> float:
-        link = self.cfg.out_link.get(approach)
-        if link is None:
-            return 0.0
+    def _fresh_occ(self, link: str, t: float) -> float:
         rec = self._link_occ.get(link)
         if rec is None or t - rec[0] > self.cfg.link_state_stale_s:
             return 0.0
         return rec[1]
+
+    def _downstream(self, approach: str, t: float) -> float:
+        link = self.cfg.out_link.get(approach)
+        if link is None:
+            return 0.0
+        d = self._fresh_occ(link, t)
+        if self.cfg.hop_range >= 2:
+            l2 = self.cfg.out_link2.get(approach)
+            if l2 is not None:
+                d = max(d, self.cfg.hop2_weight * self._fresh_occ(l2, t))
+        return d
 
     def _pressures(self, obs: JunctionObs) -> Dict[int, float]:
         out: Dict[int, float] = {}
@@ -353,6 +361,12 @@ class FuzzyJunctionController:
                 if up and ap and ap.capacity > 0:
                     out.append(Message("link_state", cfg.name, up, obs.t, link,
                                        occupancy=_clamp(ap.queue / ap.capacity, 0.0, 1.0)))
+            if cfg.hop_range >= 2:   # relay the hop-1 state of my out-link one junction further upstream (hop 2, never re-relayed)
+                for a, link in cfg.in_link.items():
+                    up, ol = cfg.upstream_of.get(link), cfg.out_link.get(a)
+                    rec = self._link_occ.get(ol) if ol else None
+                    if up and rec is not None:
+                        out.append(Message("link_state", cfg.name, up, rec[0], ol, occupancy=rec[1], hops=2))
         for tr in confirmed:
             if self._approach_phase.get(tr.approach) != target:
                 continue
@@ -367,4 +381,10 @@ class FuzzyJunctionController:
             eta = tr.eta_s + tr.queue_ahead * cfg.headway_s + cfg.link_travel_s.get(link, 10.0)
             out.append(Message("emergency", cfg.name, dst, obs.t, link, eta_s=eta, cls=tr.cls,
                                conf=tr.conf, tid=tr.tid))
+            l2 = cfg.out_link2.get(tr.approach) if (cfg.hop_range >= 2 and cfg.hop2_notices) else None
+            dst2 = cfg.downstream2_of.get(l2) if l2 else None
+            if dst2:
+                out.append(Message("emergency", cfg.name, dst2, obs.t, l2,
+                                   eta_s=eta + cfg.link_travel_s.get(l2, 10.0), cls=tr.cls,
+                                   conf=tr.conf, tid=tr.tid, hops=2))
         return tuple(out)

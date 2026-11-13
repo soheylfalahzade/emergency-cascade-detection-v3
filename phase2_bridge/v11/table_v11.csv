@@ -1,0 +1,73 @@
+file,comparison,metric,first_mean,second_mean,diff,ci_lo,ci_hi,n_pairs
+results_v10_ft_ClearNight,fuzzy - preempt,amb_stopped_s,3.1,2.0,1.1,0.0,3.3,10
+results_v10_ft_ClearNight,fuzzy - preempt,amb_time_to_cross_s,9.2,8.3,0.9,-0.7,3.5,10
+results_v10_ft_ClearNight,fuzzy - preempt,norm_stopped_s_per_veh,4.888250561837518,5.992397534154971,-1.104146972317453,-2.2381894682008814,0.11897237386945557,10
+results_v10_ft_ClearNight,fuzzy - preempt,max_wait_s,23.9,29.8,-5.9,-11.5,-0.3,10
+results_v10_ft_ClearNight,fuzzy - preempt,switches_per_h,187.7142857142857,169.7142857142857,18.0,-2.571428571428572,38.57142857142857,10
+results_v10_ft_ClearNight,fuzzy - preempt,false_preempt_s,22.9,25.0,-2.1,-10.6,4.9,10
+results_v10_ft_ClearNoon,fuzzy - preempt,amb_stopped_s,2.6,2.8,-0.2,-1.1024999999999991,0.8,10
+results_v10_ft_ClearNoon,fuzzy - preempt,amb_time_to_cross_s,8.9,9.1,-0.2,-1.4,1.2,10
+results_v10_ft_ClearNoon,fuzzy - preempt,norm_stopped_s_per_veh,4.765644538462142,4.189197018465896,0.5764475199962458,-0.29363533612813975,1.4299858156149194,10
+results_v10_ft_ClearNoon,fuzzy - preempt,max_wait_s,23.4,25.9,-2.5,-7.1,2.5,10
+results_v10_ft_ClearNoon,fuzzy - preempt,switches_per_h,241.7142857142857,221.14285714285717,20.57142857142857,2.842170943040401e-15,41.14285714285713,10
+results_v10_ft_ClearNoon,fuzzy - preempt,false_preempt_s,54.2,48.9,5.3,1.4,9.302499999999965,10
+results_v10_ft_Fog,fuzzy - preempt,amb_stopped_s,3.3,3.5,-0.2,-2.1,1.4,10
+results_v10_ft_Fog,fuzzy - preempt,amb_time_to_cross_s,9.6,10.2,-0.6,-2.9,1.4,10
+results_v10_ft_Fog,fuzzy - preempt,norm_stopped_s_per_veh,3.8571964331117656,3.9728088115588114,-0.11561237844704657,-1.26426186520859,1.1706418590546874,10
+results_v10_ft_Fog,fuzzy - preempt,max_wait_s,20.4,20.8,-0.4,-3.9,2.8,10
+results_v10_ft_Fog,fuzzy - preempt,switches_per_h,303.4285714285714,295.71428571428567,7.7142857142857135,-15.428571428571436,38.57142857142858,10
+results_v10_ft_Fog,fuzzy - preempt,false_preempt_s,73.2,75.3,-2.1,-8.1,4.4,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,amb_stopped_s,3.2,2.6,0.6,-1.2,2.8,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,amb_time_to_cross_s,9.6,8.7,0.9,-1.4,3.8,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,norm_stopped_s_per_veh,4.265007904597484,3.87609044570143,0.38891745889605517,-0.5928240392529678,1.4596464759973053,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,max_wait_s,18.5,20.7,-2.2,-7.4,2.9,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,switches_per_h,275.1428571428571,234.0,41.142857142857146,-2.5714285714285667,87.42857142857142,10
+results_v10_ft_HardRainNoon,fuzzy - preempt,false_preempt_s,64.9,63.7,1.2,-3.2,5.702499999999964,10
+results_v10_p1_ClearNight,fuzzy - preempt,amb_stopped_s,27.2,15.2,12.0,-3.2,24.2,5
+results_v10_p1_ClearNight,fuzzy - preempt,amb_time_to_cross_s,35.4,22.6,12.8,-2.6,25.2,5
+results_v10_p1_ClearNight,fuzzy - preempt,norm_stopped_s_per_veh,7.808126293995859,8.26260606060606,-0.4544797666102012,-3.3521204592508935,2.4126666666666674,5
+results_v10_p1_ClearNight,fuzzy - preempt,max_wait_s,41.6,32.2,9.4,-2.6,22.2,5
+results_v10_p1_ClearNight,fuzzy - preempt,switches_per_h,97.7142857142857,113.14285714285714,-15.428571428571425,-41.14285714285713,20.571428571428577,5
+results_v10_p1_ClearNight,fuzzy - preempt,false_preempt_s,5.6,3.6,2.0,-1.2,5.0,5
+results_v10_p1_ClearNoon,fuzzy - preempt,amb_stopped_s,16.0,15.2,0.8,-20.0,21.6,5
+results_v10_p1_ClearNoon,fuzzy - preempt,amb_time_to_cross_s,22.8,22.6,0.2,-21.6,22.0,5
+results_v10_p1_ClearNoon,fuzzy - preempt,norm_stopped_s_per_veh,11.281414539693715,7.658333333333334,3.623081206360382,1.0790880713489408,5.339073226544622,5
+results_v10_p1_ClearNoon,fuzzy - preempt,max_wait_s,45.6,33.8,11.8,7.8,15.6,5
+results_v10_p1_ClearNoon,fuzzy - preempt,switches_per_h,72.0,123.42857142857142,-51.42857142857142,-77.14285714285714,-30.857142857142854,5
+results_v10_p1_ClearNoon,fuzzy - preempt,false_preempt_s,7.2,5.6,1.6,-1.8,4.6,5
+results_v10_p1_Fog,fuzzy - preempt,amb_stopped_s,35.0,8.6,26.4,-2.6,55.4,5
+results_v10_p1_Fog,fuzzy - preempt,amb_time_to_cross_s,42.0,15.8,26.2,-4.6,57.0,5
+results_v10_p1_Fog,fuzzy - preempt,norm_stopped_s_per_veh,14.270794258373206,7.1395757575757575,7.131218500797448,3.37539393939394,10.887043062200956,5
+results_v10_p1_Fog,fuzzy - preempt,max_wait_s,54.6,32.6,22.0,12.8,31.2,5
+results_v10_p1_Fog,fuzzy - preempt,switches_per_h,51.42857142857142,102.85714285714285,-51.42857142857142,-51.42857142857142,-51.42857142857142,5
+results_v10_p1_Fog,fuzzy - preempt,false_preempt_s,0.0,0.0,0.0,0.0,0.0,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,amb_stopped_s,8.8,8.6,0.2,0.0,0.6,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,amb_time_to_cross_s,16.8,15.8,1.0,0.0,2.4,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,norm_stopped_s_per_veh,7.320349206349206,7.1395757575757575,0.18077344877344875,-1.068083694083694,1.3117460317460317,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,max_wait_s,47.8,32.6,15.2,8.8,23.4,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,switches_per_h,72.0,102.85714285714285,-30.85714285714285,-41.14285714285714,-25.71428571428571,5
+results_v10_p1_HardRainNoon,fuzzy - preempt,false_preempt_s,0.0,0.0,0.0,0.0,0.0,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),amb_stopped_s,20.8,27.2,-6.4,-19.2,6.6,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),amb_time_to_cross_s,28.4,35.4,-7.0,-21.0,8.2,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),norm_stopped_s_per_veh,6.375580611608071,7.808126293995859,-1.4325456823877878,-3.467333333333334,0.6022419685577585,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),max_wait_s,34.4,41.6,-7.2,-17.2,2.8,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),switches_per_h,97.7142857142857,97.7142857142857,-2.842170943040401e-15,-25.714285714285715,20.571428571428566,5
+results_v10b_p1_ClearNight,fuzzy(visibility proxy) - fuzzy(no visibility),false_preempt_s,0.8,5.6,-4.8,-7.2,-2.2,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),amb_stopped_s,16.0,16.0,0.0,0.0,0.0,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),amb_time_to_cross_s,22.8,22.8,0.0,0.0,0.0,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),norm_stopped_s_per_veh,11.281414539693715,11.281414539693715,0.0,0.0,0.0,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),max_wait_s,45.6,45.6,0.0,0.0,0.0,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),switches_per_h,72.0,72.0,0.0,0.0,0.0,5
+results_v10b_p1_ClearNoon,fuzzy(visibility proxy) - fuzzy(no visibility),false_preempt_s,7.2,7.2,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),amb_stopped_s,35.0,35.0,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),amb_time_to_cross_s,42.0,42.0,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),norm_stopped_s_per_veh,14.270794258373206,14.270794258373206,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),max_wait_s,54.6,54.6,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),switches_per_h,51.42857142857142,51.42857142857142,0.0,0.0,0.0,5
+results_v10b_p1_Fog,fuzzy(visibility proxy) - fuzzy(no visibility),false_preempt_s,0.0,0.0,0.0,0.0,0.0,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),amb_stopped_s,23.4,8.8,14.6,-5.0,31.4,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),amb_time_to_cross_s,31.4,16.8,14.6,-6.8,32.2,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),norm_stopped_s_per_veh,11.892323232323234,7.320349206349206,4.5719740259740265,1.8250000000000006,7.025142857142856,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),max_wait_s,47.4,47.8,-0.4,-16.2,13.6,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),switches_per_h,56.57142857142857,72.0,-15.428571428571427,-25.714285714285715,-5.142857142857143,5
+results_v10b_p1_HardRainNoon,fuzzy(visibility proxy) - fuzzy(no visibility),false_preempt_s,0.0,0.0,0.0,0.0,0.0,5

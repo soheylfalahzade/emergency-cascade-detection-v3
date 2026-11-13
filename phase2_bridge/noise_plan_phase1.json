@@ -1,0 +1,51 @@
+{
+ "_note": "CARLA-measured detector rates (yolov8n_fold0, conf>=0.50); far_m is an approximate camera->stop-line conversion",
+ "ClearNight": {
+  "p_miss_car": 0.9658,
+  "p_miss_emerg": 0.9117,
+  "p_miss_far": 0.0,
+  "far_m": 11.5,
+  "p_emerg_as_car": 0.8182,
+  "fp_per_min": 0.235,
+  "n_emergency_obs": 402,
+  "n_near": 283,
+  "n_far": 119,
+  "caveats": []
+ },
+ "ClearNoon": {
+  "p_miss_car": 0.9797,
+  "p_miss_emerg": 0.8905,
+  "p_miss_far": 0.0423,
+  "far_m": 11.5,
+  "p_emerg_as_car": 1.0,
+  "fp_per_min": 0.471,
+  "n_emergency_obs": 402,
+  "n_near": 283,
+  "n_far": 119,
+  "caveats": []
+ },
+ "Fog": {
+  "p_miss_car": 1.0,
+  "p_miss_emerg": 1.0,
+  "p_miss_far": 0.0,
+  "far_m": 11.5,
+  "p_emerg_as_car": 0.0,
+  "fp_per_min": 0.0,
+  "n_emergency_obs": 402,
+  "n_near": 283,
+  "n_far": 119,
+  "caveats": []
+ },
+ "HardRainNoon": {
+  "p_miss_car": 0.9155,
+  "p_miss_emerg": 0.8622,
+  "p_miss_far": 0.0538,
+  "far_m": 11.5,
+  "p_emerg_as_car": 1.0,
+  "fp_per_min": 0.0,
+  "n_emergency_obs": 402,
+  "n_near": 283,
+  "n_far": 119,
+  "caveats": []
+ }
+}

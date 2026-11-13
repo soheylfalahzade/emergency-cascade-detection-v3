@@ -1,0 +1,85 @@
+{
+ "_note": "DRAFT: verify approach bins, light ids and stop points before use",
+ "name": "group14",
+ "approaches": {
+  "A0": {
+   "lights": [
+    134
+   ],
+   "stop_xy": [
+    [
+     10.55,
+     2.52
+    ],
+    [
+     10.55,
+     6.02
+    ]
+   ],
+   "yaw": 0.0,
+   "capacity": 12
+  },
+  "A3": {
+   "lights": [
+    135
+   ],
+   "stop_xy": [
+    [
+     31.6,
+     19.6
+    ],
+    [
+     35.1,
+     19.6
+    ]
+   ],
+   "yaw": -90.0,
+   "capacity": 12
+  },
+  "A2": {
+   "lights": [
+    136
+   ],
+   "stop_xy": [
+    [
+     48.25,
+     -1.73
+    ],
+    [
+     48.26,
+     -5.23
+    ]
+   ],
+   "yaw": -180.0,
+   "capacity": 12
+  },
+  "A1": {
+   "lights": [
+    137
+   ],
+   "stop_xy": [
+    [
+     27.97,
+     -19.45
+    ],
+    [
+     24.47,
+     -19.43
+    ]
+   ],
+   "yaw": 90.0,
+   "capacity": 12
+  }
+ },
+ "phases": {
+  "0": [
+   "A0",
+   "A2"
+  ],
+  "1": [
+   "A1",
+   "A3"
+  ]
+ },
+ "config": {}
+}

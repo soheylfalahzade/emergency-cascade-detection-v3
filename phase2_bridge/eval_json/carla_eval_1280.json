@@ -1,0 +1,1662 @@
+{
+ "source": "CARLA",
+ "imgsz": 1280,
+ "min_area": 400.0,
+ "max_dist": 100.0,
+ "models": {
+  "yolov8n_fold0": {
+   "conf>=0.25": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.08692307692307692,
+     "found_ci": [
+      0.05409398257929707,
+      0.1304072500408547
+     ],
+     "correct_class": 0.02,
+     "correct_ci": [
+      0.0037169567577596215,
+      0.04605516194331982
+     ],
+     "emerg_any": 0.02,
+     "confusion": {
+      "ambulance": 26,
+      "police": 0,
+      "firetruck": 0,
+      "car": 87,
+      "missed": 1187
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.3968531468531469,
+     "found_ci": [
+      0.2881039699633652,
+      0.5213746719160105
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 454,
+      "missed": 690
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.032072368421052634,
+     "found_ci": [
+      0.01698227581789226,
+      0.052201450892857125
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.004934210526315789,
+     "confusion": {
+      "ambulance": 6,
+      "police": 0,
+      "firetruck": 0,
+      "car": 33,
+      "missed": 1177
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.15665014456836018,
+     "found_ci": [
+      0.12626439897561048,
+      0.19128409633395674
+     ],
+     "correct_class": 0.15530772408095828,
+     "correct_ci": [
+      0.12492281052947653,
+      0.19039722123927302
+     ],
+     "confusion": {
+      "ambulance": 8,
+      "police": 0,
+      "firetruck": 5,
+      "car": 1504,
+      "missed": 8167
+     },
+     "car_as_emergency": 0.0013424204874019,
+     "car_as_emergency_ci": [
+      0.00043799144511630497,
+      0.0025370019184579365
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.24176470588235294,
+     "police": 0.0,
+     "firetruck": 0.0,
+     "car": 2.518823529411765
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.16557377049180327,
+     "found_near": 0.14248704663212436,
+     "found_far": 0.20535714285714285,
+     "as_car_given_found": 0.9471947194719472
+    },
+    "fp_emerg_per_frame": 0.24176470588235294,
+    "car_as_emerg_per_frame": 0.007647058823529412,
+    "n_frames": 1700
+   },
+   "conf>=0.50": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.016153846153846154,
+     "found_ci": [
+      0.0036629366241372097,
+      0.037065903662036936
+     ],
+     "correct_class": 0.011538461538461539,
+     "correct_ci": [
+      0.0014073361607543826,
+      0.028216202223582672
+     ],
+     "emerg_any": 0.011538461538461539,
+     "confusion": {
+      "ambulance": 15,
+      "police": 0,
+      "firetruck": 0,
+      "car": 6,
+      "missed": 1279
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.15996503496503497,
+     "found_ci": [
+      0.0984209489309704,
+      0.2380355034575813
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 183,
+      "missed": 961
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.006578947368421052,
+     "found_ci": [
+      0.001823112545724139,
+      0.01252993908972061
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 8,
+      "missed": 1208
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.03077240809582817,
+     "found_ci": [
+      0.022866176298276083,
+      0.039842402941722144
+     ],
+     "correct_class": 0.030049566294919453,
+     "correct_ci": [
+      0.022213281397232998,
+      0.03894652783393606
+     ],
+     "confusion": {
+      "ambulance": 6,
+      "police": 0,
+      "firetruck": 1,
+      "car": 291,
+      "missed": 9386
+     },
+     "car_as_emergency": 0.0007228418009087154,
+     "car_as_emergency_ci": [
+      0.00010082652546729538,
+      0.0017243530444228997
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.09647058823529411,
+     "police": 0.0,
+     "firetruck": 0.0,
+     "car": 0.4082352941176471
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.05792349726775956,
+     "found_near": 0.04533678756476684,
+     "found_far": 0.07961309523809523,
+     "as_car_given_found": 0.9292452830188679
+    },
+    "fp_emerg_per_frame": 0.09647058823529411,
+    "car_as_emerg_per_frame": 0.00411764705882353,
+    "n_frames": 1700
+   },
+   "emergency_by_distance@0.5": {
+    "0-50m": {
+     "n": 2316,
+     "found": 0.04533678756476684,
+     "emerg_any": 0.0012953367875647669
+    },
+    "50-80m": {
+     "n": 1344,
+     "found": 0.07961309523809523,
+     "emerg_any": 0.008928571428571428
+    },
+    "80-101m": {
+     "n": 0,
+     "found": null,
+     "emerg_any": null
+    }
+   },
+   "emergency_by_weather@0.5": {
+    "ClearNight": {
+     "n": 915,
+     "found": 0.05901639344262295,
+     "emerg_any": 0.015300546448087432
+    },
+    "ClearNoon": {
+     "n": 915,
+     "found": 0.0633879781420765,
+     "emerg_any": 0.001092896174863388
+    },
+    "Fog": {
+     "n": 915,
+     "found": 0.0,
+     "emerg_any": 0.0
+    },
+    "HardRainNoon": {
+     "n": 915,
+     "found": 0.1092896174863388,
+     "emerg_any": 0.0
+    }
+   },
+   "by_weather@0.5": {
+    "ClearNight": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.04923076923076923,
+      "found_ci": [
+       0.003609461330434895,
+       0.12436852331606209
+      ],
+      "correct_class": 0.043076923076923075,
+      "correct_ci": [
+       0.003609461330434895,
+       0.10476631393298058
+      ],
+      "emerg_any": 0.043076923076923075,
+      "confusion": {
+       "ambulance": 14,
+       "police": 0,
+       "firetruck": 0,
+       "car": 2,
+       "missed": 309
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.10839160839160839,
+      "found_ci": [
+       0.06136211250435388,
+       0.1608140016570007
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 31,
+       "missed": 255
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.023026315789473683,
+      "found_ci": [
+       0.007935463659147868,
+       0.043355742648906744
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 7,
+       "missed": 297
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.03139198678232136,
+      "found_ci": [
+       0.016616746266005275,
+       0.05201820477969113
+      ],
+      "correct_class": 0.028913672036348616,
+      "correct_ci": [
+       0.014467180392381372,
+       0.04879031645814238
+      ],
+      "confusion": {
+       "ambulance": 6,
+       "police": 0,
+       "firetruck": 0,
+       "car": 70,
+       "missed": 2345
+      },
+      "car_as_emergency": 0.0024783147459727386,
+      "car_as_emergency_ci": [
+       0.0,
+       0.006448423361175941
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.0
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.05901639344262295,
+      "found_near": 0.0051813471502590676,
+      "found_far": 0.15178571428571427,
+      "as_car_given_found": 0.7407407407407407
+     },
+     "fp_emerg_per_frame": 0.0,
+     "car_as_emerg_per_frame": 0.01411764705882353,
+     "n_frames": 425
+    },
+    "ClearNoon": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.009230769230769232,
+      "found_ci": [
+       0.0,
+       0.019417475728155338
+      ],
+      "correct_class": 0.003076923076923077,
+      "correct_ci": [
+       0.0,
+       0.00980392156862745
+      ],
+      "emerg_any": 0.003076923076923077,
+      "confusion": {
+       "ambulance": 1,
+       "police": 0,
+       "firetruck": 0,
+       "car": 2,
+       "missed": 322
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.19230769230769232,
+      "found_ci": [
+       0.060956236234603146,
+       0.38102040816326493
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 55,
+       "missed": 231
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.02808756712102437,
+      "found_ci": [
+       0.016235919853723267,
+       0.04374245025857896
+      ],
+      "correct_class": 0.027674514663362248,
+      "correct_ci": [
+       0.015691728902688037,
+       0.04319016881827206
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 1,
+       "car": 67,
+       "missed": 2353
+      },
+      "car_as_emergency": 0.0004130524576621231,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0014549158050930612
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.3764705882352941,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.004705882352941176
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.0633879781420765,
+      "found_near": 0.06044905008635579,
+      "found_far": 0.06845238095238096,
+      "as_car_given_found": 0.9827586206896551
+     },
+     "fp_emerg_per_frame": 0.3764705882352941,
+     "car_as_emerg_per_frame": 0.002352941176470588,
+     "n_frames": 425
+    },
+    "Fog": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 325
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 286
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.0016522098306484924,
+      "found_ci": [
+       0.0,
+       0.004025791913886457
+      ],
+      "correct_class": 0.0016522098306484924,
+      "correct_ci": [
+       0.0,
+       0.004025791913886457
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 4,
+       "missed": 2417
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.0
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.0,
+      "found_near": 0.0,
+      "found_far": 0.0,
+      "as_car_given_found": null
+     },
+     "fp_emerg_per_frame": 0.0,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    },
+    "HardRainNoon": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.006153846153846154,
+      "found_ci": [
+       0.0,
+       0.015941074412029275
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 2,
+       "missed": 323
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.33916083916083917,
+      "found_ci": [
+       0.16465707550699693,
+       0.5488662790697673
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 97,
+       "missed": 189
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.003289473684210526,
+      "found_ci": [
+       0.0,
+       0.009259796339262693
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 1,
+       "missed": 303
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.061957868649318466,
+      "found_ci": [
+       0.040070393506040525,
+       0.09049801960833719
+      ],
+      "correct_class": 0.061957868649318466,
+      "correct_ci": [
+       0.040070393506040525,
+       0.09049801960833719
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 150,
+       "missed": 2271
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.009411764705882352,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 1.628235294117647
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.1092896174863388,
+      "found_near": 0.1157167530224525,
+      "found_far": 0.09821428571428571,
+      "as_car_given_found": 1.0
+     },
+     "fp_emerg_per_frame": 0.009411764705882352,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    }
+   },
+   "conf>=0.75": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.002307692307692308,
+     "found_ci": [
+      0.0,
+      0.005323599957075692
+     ],
+     "correct_class": 0.002307692307692308,
+     "correct_ci": [
+      0.0,
+      0.005323599957075692
+     ],
+     "emerg_any": 0.002307692307692308,
+     "confusion": {
+      "ambulance": 3,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1297
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.0034965034965034965,
+     "found_ci": [
+      0.0,
+      0.010350033215481525
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 4,
+      "missed": 1140
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1216
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.0004130524576621231,
+     "found_ci": [
+      0.0,
+      0.0009584060492329513
+     ],
+     "correct_class": 0.00020652622883106156,
+     "correct_ci": [
+      0.0,
+      0.0005323849994369839
+     ],
+     "confusion": {
+      "ambulance": 2,
+      "police": 0,
+      "firetruck": 0,
+      "car": 2,
+      "missed": 9680
+     },
+     "car_as_emergency": 0.00020652622883106156,
+     "car_as_emergency_ci": [
+      0.0,
+      0.0006476893947030636
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.0029411764705882353,
+     "police": 0.0,
+     "firetruck": 0.0,
+     "car": 0.0
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.001912568306010929,
+     "found_near": 0.0008635578583765112,
+     "found_far": 0.003720238095238095,
+     "as_car_given_found": 0.5714285714285714
+    },
+    "fp_emerg_per_frame": 0.0029411764705882353,
+    "car_as_emerg_per_frame": 0.001176470588235294,
+    "n_frames": 1700
+   }
+  },
+  "rtdetr_l_fold0": {
+   "conf>=0.25": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.002307692307692308,
+     "found_ci": [
+      0.0,
+      0.006346652502857503
+     ],
+     "correct_class": 0.0007692307692307692,
+     "correct_ci": [
+      0.0,
+      0.0025404901588069588
+     ],
+     "emerg_any": 0.0007692307692307692,
+     "confusion": {
+      "ambulance": 1,
+      "police": 0,
+      "firetruck": 0,
+      "car": 2,
+      "missed": 1297
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.2508741258741259,
+     "found_ci": [
+      0.16370700560207216,
+      0.35725469793126163
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 287,
+      "missed": 857
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1216
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.04853366377529946,
+     "found_ci": [
+      0.0354834964903578,
+      0.06411608713585339
+     ],
+     "correct_class": 0.047501032631144156,
+     "correct_ci": [
+      0.03453664946616177,
+      0.06288576043842506
+     ],
+     "confusion": {
+      "ambulance": 10,
+      "police": 0,
+      "firetruck": 0,
+      "car": 460,
+      "missed": 9214
+     },
+     "car_as_emergency": 0.0010326311441553077,
+     "car_as_emergency_ci": [
+      0.0,
+      0.0034034842326075725
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.0017647058823529412,
+     "police": 0.0,
+     "firetruck": 0.001176470588235294,
+     "car": 1.9576470588235295
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.07923497267759563,
+     "found_near": 0.09412780656303972,
+     "found_far": 0.05357142857142857,
+     "as_car_given_found": 0.996551724137931
+    },
+    "fp_emerg_per_frame": 0.0029411764705882353,
+    "car_as_emerg_per_frame": 0.0058823529411764705,
+    "n_frames": 1700
+   },
+   "conf>=0.50": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1300
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.0017482517482517483,
+     "found_ci": [
+      0.0,
+      0.004444642327100029
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 2,
+      "missed": 1142
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1216
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.001755472945064023,
+     "found_ci": [
+      0.0006365809448389346,
+      0.0031590794313426924
+     ],
+     "correct_class": 0.001755472945064023,
+     "correct_ci": [
+      0.0006365809448389346,
+      0.0031590794313426924
+     ],
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 17,
+      "missed": 9667
+     },
+     "car_as_emergency": 0.0,
+     "car_as_emergency_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.0,
+     "police": 0.0,
+     "firetruck": 0.000588235294117647,
+     "car": 0.0035294117647058825
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.000546448087431694,
+     "found_near": 0.0008635578583765112,
+     "found_far": 0.0,
+     "as_car_given_found": 1.0
+    },
+    "fp_emerg_per_frame": 0.000588235294117647,
+    "car_as_emerg_per_frame": 0.0,
+    "n_frames": 1700
+   },
+   "emergency_by_distance@0.5": {
+    "0-50m": {
+     "n": 2316,
+     "found": 0.0008635578583765112,
+     "emerg_any": 0.0
+    },
+    "50-80m": {
+     "n": 1344,
+     "found": 0.0,
+     "emerg_any": 0.0
+    },
+    "80-101m": {
+     "n": 0,
+     "found": null,
+     "emerg_any": null
+    }
+   },
+   "emergency_by_weather@0.5": {
+    "ClearNight": {
+     "n": 915,
+     "found": 0.0,
+     "emerg_any": 0.0
+    },
+    "ClearNoon": {
+     "n": 915,
+     "found": 0.001092896174863388,
+     "emerg_any": 0.0
+    },
+    "Fog": {
+     "n": 915,
+     "found": 0.0,
+     "emerg_any": 0.0
+    },
+    "HardRainNoon": {
+     "n": 915,
+     "found": 0.001092896174863388,
+     "emerg_any": 0.0
+    }
+   },
+   "by_weather@0.5": {
+    "ClearNight": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 325
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 286
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.0037174721189591076,
+      "found_ci": [
+       0.0,
+       0.0089610260309185
+      ],
+      "correct_class": 0.0037174721189591076,
+      "correct_ci": [
+       0.0,
+       0.0089610260309185
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 9,
+       "missed": 2412
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.002352941176470588,
+      "car": 0.0
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.0,
+      "found_near": 0.0,
+      "found_far": 0.0,
+      "as_car_given_found": null
+     },
+     "fp_emerg_per_frame": 0.002352941176470588,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    },
+    "ClearNoon": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 325
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.0034965034965034965,
+      "found_ci": [
+       0.0,
+       0.013072966891674698
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 1,
+       "missed": 285
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.0004130524576621231,
+      "found_ci": [
+       0.0,
+       0.0013863536877095726
+      ],
+      "correct_class": 0.0004130524576621231,
+      "correct_ci": [
+       0.0,
+       0.0013863536877095726
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 1,
+       "missed": 2420
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.004705882352941176
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.001092896174863388,
+      "found_near": 0.0017271157167530224,
+      "found_far": 0.0,
+      "as_car_given_found": 1.0
+     },
+     "fp_emerg_per_frame": 0.0,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    },
+    "Fog": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 325
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 286
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 2421
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.0
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.0,
+      "found_near": 0.0,
+      "found_far": 0.0,
+      "as_car_given_found": null
+     },
+     "fp_emerg_per_frame": 0.0,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    },
+    "HardRainNoon": {
+     "ambulance": {
+      "n_obs": 325,
+      "n_tracks": 13,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 325
+      }
+     },
+     "police": {
+      "n_obs": 286,
+      "n_tracks": 13,
+      "found": 0.0034965034965034965,
+      "found_ci": [
+       0.0,
+       0.010526315789473684
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 1,
+       "missed": 285
+      }
+     },
+     "firetruck": {
+      "n_obs": 304,
+      "n_tracks": 14,
+      "found": 0.0,
+      "found_ci": [
+       0.0,
+       0.0
+      ],
+      "correct_class": 0.0,
+      "correct_ci": [
+       0.0,
+       0.0
+      ],
+      "emerg_any": 0.0,
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 0,
+       "missed": 304
+      }
+     },
+     "car": {
+      "n_obs": 2421,
+      "n_tracks": 102,
+      "found": 0.0028913672036348617,
+      "found_ci": [
+       0.0009398275618624025,
+       0.005123825789923143
+      ],
+      "correct_class": 0.0028913672036348617,
+      "correct_ci": [
+       0.0009398275618624025,
+       0.005123825789923143
+      ],
+      "confusion": {
+       "ambulance": 0,
+       "police": 0,
+       "firetruck": 0,
+       "car": 7,
+       "missed": 2414
+      },
+      "car_as_emergency": 0.0,
+      "car_as_emergency_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "false_positives_per_frame": {
+      "ambulance": 0.0,
+      "police": 0.0,
+      "firetruck": 0.0,
+      "car": 0.009411764705882352
+     },
+     "emerg_pooled": {
+      "n": 915,
+      "n_near": 579,
+      "n_far": 336,
+      "found": 0.001092896174863388,
+      "found_near": 0.0017271157167530224,
+      "found_far": 0.0,
+      "as_car_given_found": 1.0
+     },
+     "fp_emerg_per_frame": 0.0,
+     "car_as_emerg_per_frame": 0.0,
+     "n_frames": 425
+    }
+   },
+   "conf>=0.75": {
+    "ambulance": {
+     "n_obs": 1300,
+     "n_tracks": 52,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1300
+     }
+    },
+    "police": {
+     "n_obs": 1144,
+     "n_tracks": 52,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1144
+     }
+    },
+    "firetruck": {
+     "n_obs": 1216,
+     "n_tracks": 56,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "emerg_any": 0.0,
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 1216
+     }
+    },
+    "car": {
+     "n_obs": 9684,
+     "n_tracks": 408,
+     "found": 0.0,
+     "found_ci": [
+      0.0,
+      0.0
+     ],
+     "correct_class": 0.0,
+     "correct_ci": [
+      0.0,
+      0.0
+     ],
+     "confusion": {
+      "ambulance": 0,
+      "police": 0,
+      "firetruck": 0,
+      "car": 0,
+      "missed": 9684
+     },
+     "car_as_emergency": 0.0,
+     "car_as_emergency_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "false_positives_per_frame": {
+     "ambulance": 0.0,
+     "police": 0.0,
+     "firetruck": 0.0,
+     "car": 0.0
+    },
+    "emerg_pooled": {
+     "n": 3660,
+     "n_near": 2316,
+     "n_far": 1344,
+     "found": 0.0,
+     "found_near": 0.0,
+     "found_far": 0.0,
+     "as_car_given_found": null
+    },
+    "fp_emerg_per_frame": 0.0,
+    "car_as_emerg_per_frame": 0.0,
+    "n_frames": 1700
+   }
+  }
+ }
+}

@@ -1,0 +1,3 @@
+determinism hybrid preempt identical
+determinism hybrid fuzzy identical
+camera perturbation (fixed policy, with vs without camera): NONE detected

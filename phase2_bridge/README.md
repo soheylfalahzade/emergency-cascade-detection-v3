@@ -287,7 +287,7 @@ A3: CONSISTENT | API state phase 0=Red, phase 1=Green | changed pixels=2570 | co
 ```
 </details>
 
-Status of the by-eye check of the light-to-approach mapping (in phase 0 the light heads next to A0 and A2 are green; in phase 1 those next to A1 and A3): **by-eye confirmation pending (automated colour check above)**.
+Status of the by-eye check of the light-to-approach mapping (in phase 0 the light heads next to A0 and A2 are green; in phase 1 those next to A1 and A3): **confirmed by eye on the renders above (consistent with the automated colour check)**.
 
 ## 5. Discussion
 

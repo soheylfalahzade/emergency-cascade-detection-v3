@@ -328,6 +328,10 @@ The image-level cascade table in `results_v3/image_cascade_holdout_final.json` (
 
 *Row 1: phase 0 (A0 and A2 green); row 2: phase 1 (A1 and A3 green). The mapping between lights and approaches is checked by stop-line distance (mismatch ≤ 0.01 m), by behaviour, by pixel colour counts and by eye.*
 
+**Animation (CARLA simulation).** The same seed under two policies, side by side; the policy of each panel is printed in its header. One junction, one run per policy, a 16 s excerpt of a 32 s clip. This is an illustration, **not a result**; averages over seeds are in section 4.5. Click the animation for the full MP4.
+
+<p align="center"><a href="docs/media/carla_fixed_vs_fuzzy_s0.mp4"><img src="docs/media/carla_fixed_vs_fuzzy_s0.gif" alt="CARLA simulation: two policies on the same junction and seed, side by side" width="900"></a></p>
+
 The full Phase 2 report (all tables, protocols, per-weather results) is in [`phase2_bridge/README.md`](phase2_bridge/README.md).
 
 ## 4.9 COCO benchmark of the same methods (FROZEN-ONCE on the COCO test half)
@@ -383,6 +387,10 @@ Zero near-duplicates were found. The method does not detect different frames of 
 - Extending the messages to two junctions each way does **not** help at the base demand (ordinary delay is higher in every seed, emergency delay is unchanged within the interval) and gains nothing under the tested message delays or losses either.
 - In saturated demand (spillbacks present), the two-hop emergency notices reduce emergency delay and spillbacks; the two-hop pressure term alone has no measurable effect. The hop-2 weight made no difference at the base demand.
 - Messaging to two junctions each way exists only in this model; it was not run in CARLA.
+
+**Animation (abstract queue model, not CARLA).** Three junctions, base demand (lam 0.12), seed 11, 600 s, three emergency vehicles. Top row: fuzzy controller (full); bottom row: fixed-time; same demand and vehicles. This is an illustration of the abstract queue model, **not a result and not evidence about CARLA or real traffic**. Click the animation for the MP4.
+
+<p align="center"><a href="docs/media/p2_corridor_fuzzy_vs_fixed.mp4"><img src="docs/media/p2_corridor_fuzzy_vs_fixed.gif" alt="Abstract queue model: fuzzy controller versus fixed-time on three junctions" width="760"></a></p>
 
 ## 4.12 Appendix: first run with the 15-epoch Faster R-CNN
 

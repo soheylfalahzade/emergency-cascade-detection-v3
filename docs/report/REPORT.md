@@ -372,7 +372,7 @@ The frozen policy `band<0.7` escalates 25% of the images and reaches **0.8981** 
 
 <p align="center"><img src="../readme_figures/fig_model_cost.png" alt="Model cost" width="860"></p>
 
-<function bench_tbl at 0x7c89d96756c0>
+<function bench_tbl at 0x71473d1756c0>
 
 *NVIDIA GeForce RTX 5060 Laptop GPU; 100 images, fold 0; timing is unstable.*
 

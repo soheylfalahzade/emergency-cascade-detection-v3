@@ -1,0 +1,33 @@
+Sat Nov 21 13:41:23 +0330 2026
+=== holdout_v3 data.yaml ===
+train: /home/dmin/Portfolio/Smart_Traffic_System/datasets/holdout_v3/images
+val: /home/dmin/Portfolio/Smart_Traffic_System/datasets/holdout_v3/images
+nc: 4
+names:
+- ambulance
+- police
+- firetruck
+- car
+=== folds_v3/fold_0 data.yaml ===
+train: /home/dmin/Portfolio/Smart_Traffic_System/datasets/folds_v3/fold_0/train/images
+val: /home/dmin/Portfolio/Smart_Traffic_System/datasets/folds_v3/fold_0/val/images
+nc: 4
+names:
+- ambulance
+- police
+- firetruck
+- car
+=== MAIN: holdout_v3 vs folds_v3 (fold_0, fold_4) ===
+
+## A = /home/dmin/Portfolio/Smart_Traffic_System/datasets/holdout_v3/data.yaml: 381 unique-location images hashed
+   vs /home/dmin/Portfolio/Smart_Traffic_System/datasets/folds_v3/fold_0/data.yaml: 28788 images
+      A images with a near-duplicate in B: 0 of 381 (0.0%)  [direct 0, only after horizontal flip 0, identical hash 0]
+   vs /home/dmin/Portfolio/Smart_Traffic_System/datasets/folds_v3/fold_4/data.yaml: 28779 images
+      A images with a near-duplicate in B: 0 of 381 (0.0%)  [direct 0, only after horizontal flip 0, identical hash 0]
+=== CONTROL: holdout_v4 vs folds_v3 ===
+
+## A = /home/dmin/Portfolio/Smart_Traffic_System/datasets/holdout_v4/data.yaml: 381 unique-location images hashed
+   vs /home/dmin/Portfolio/Smart_Traffic_System/datasets/folds_v3/fold_0/data.yaml: 28788 images
+      A images with a near-duplicate in B: 0 of 381 (0.0%)  [direct 0, only after horizontal flip 0, identical hash 0]
+Sat Nov 21 13:50:34 +0330 2026
+AUDIT27_DONE

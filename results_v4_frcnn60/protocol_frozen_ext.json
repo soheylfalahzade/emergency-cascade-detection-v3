@@ -1,0 +1,38 @@
+{
+ "time": "2026-11-20 21:59:27",
+ "rule": [
+  "Extended cascade study on cross-validation val dets (DEV only; never touches the holdout).",
+  "",
+  "Variants (light = YOLOv8n; heavy models = RT-DETR-l and the retrained Faster R-CNN):",
+  "  light_only, rtdetr_only, frcnn_only, wbf_heavy_only          reference points",
+  "  r|b1<x      image escalated by the light model's uncertainty band -> RT-DETR-l",
+  "  f|b1<x      same, -> Faster R-CNN",
+  "  fuse|b1<x   same, -> WBF fusion of RT-DETR-l and Faster R-CNN (both run on escalated images)",
+  "  tier2|b1<x|b2<y  light band -> RT-DETR-l; if RT-DETR-l is still uncertain (band y) -> WBF(RT-DETR-l, Faster R-CNN)",
+  "Expected cost per image uses the median ms of bench.json. Selection rule (fixed here, before any holdout use):",
+  "  REF = max(mean CV mAP50 of rtdetr_only, frcnn_only); candidates = cascades with mean CV mAP50 >= REF - 0.01;",
+  "  selected = candidate with the lowest mean expected ms (ties: higher mAP50). No candidate -> selected = None."
+ ],
+ "ref_map50": 0.90781329870224,
+ "target_map50": 0.89781329870224,
+ "selected": "r|b1<0.7",
+ "selected_stats": {
+  "mean_map50": 0.8980783581733703,
+  "std_map50": 0.016521144153024053,
+  "per_fold_map50": [
+   0.8920146822929382,
+   0.885297417640686,
+   0.9269077181816101,
+   0.8907737731933594,
+   0.8953981995582581
+  ],
+  "mean_e1": 0.24710437857721165,
+  "mean_e2": 0.0,
+  "mean_cost_ms": 11.970647131674545
+ },
+ "sha256": {
+  "cascade_cv_v4.py": "c95bc2320d0b21a7f6a10822b98eff09b1f51c979dac6b15d64bf224130b0116",
+  "stackcore.py": "6b0d6047d3a13f2463ea5fdad9ba9d97fcf4dadfce4793414530bae964d68469",
+  "dump_dets.py": "b5543f70b6a3dd7ad0d511179abc37adbe21c2df20deb34def29eb3668a36683"
+ }
+}

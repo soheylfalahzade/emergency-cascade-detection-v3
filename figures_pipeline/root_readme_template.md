@@ -24,6 +24,9 @@ a four-class vehicle detector with a light/heavy cascade (**Phase 1**), and a fu
 > [!IMPORTANT]
 > **How to read the numbers.** Every number carries a label: **DEV** (used for selection, optimistic), **FROZEN-ONCE** (protocol frozen before the holdout was evaluated, evaluated once), **POST-HOC** (evaluated after the holdout was consumed), **CARLA** (simulator, one junction), **abstract queue model** (never evidence about CARLA or real traffic). Section 3.5 defines them.
 
+> **Full report:** the complete write-up (introduction, related work, method, results, discussion, conclusion, references, appendices) is in [`docs/report/REPORT.md`](docs/report/REPORT.md).
+
+
 ## Contents
 
 - [Chapter 3 - Method](#chapter-3---method)
